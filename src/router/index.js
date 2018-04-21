@@ -1,6 +1,8 @@
 import Vue from 'vue'
 import Router from 'vue-router'
-import HelloWorld from '@/components/HelloWorld'
+import Index from '@/views/index/index.vue'
+import Login from '@/views/login/index.vue'
+import Register from '@/views/login/register.vue'
 
 Vue.use(Router)
 
@@ -8,8 +10,41 @@ export default new Router({
   routes: [
     {
       path: '/',
-      name: 'HelloWorld',
-      component: HelloWorld
+      name: '首页',
+      component: Index
+    },
+    {
+      path: '/login',
+      name: '登录',
+      component: Login
+    },
+    {
+      path: '/register',
+      name: '注册',
+      component: Register
+    },
+    {
+      path: '/index',
+      name: '系统首页',
+      children: [
+        {
+          path: '/server',
+          name: '业务办理',
+
+        },
+        {
+          path: '/info',
+          name: '信息查询',
+        },
+        {
+          path: '/statistic',
+          name: '海关统计',
+        },
+        {
+          path: '/反馈建议',
+          name: '业务办理',
+        },
+      ]
     }
   ]
 })
