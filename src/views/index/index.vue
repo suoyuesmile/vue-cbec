@@ -51,12 +51,13 @@
       <div class="statistic"></div>
       <div class="map"></div>
     </div>
-    <div class="footer"></div>
+    <suo-footer></suo-footer>
   </div>
 </template>
 
 <script>
 import suoHeader from '@/components/layout/header'
+import suoFooter from '@/components/layout/footer'
 
 export default {
   data() {
@@ -76,7 +77,8 @@ export default {
     handleSelect() {}
   },
   components: {
-    suoHeader
+    suoHeader,
+    suoFooter
   }
 }
 </script>
@@ -135,7 +137,5 @@ export default {
     .map
       height 480px
       background rgba(235, 235, 235, 0.6)
-  .footer
-    height 128px
-    background #545c64
+
 </style>

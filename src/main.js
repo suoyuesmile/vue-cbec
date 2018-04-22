@@ -3,6 +3,7 @@
 import Vue from 'vue'
 import App from './App'
 import router from './router'
+import resource from 'vue-resource'
 import 'element-ui/lib/theme-chalk/index.css'
 import './assets/styles/reset.styl'
 import './assets/styles/base.styl'
@@ -142,6 +143,8 @@ Vue.use(Main);
 Vue.use(Footer);
 
 Vue.use(Loading.directive);
+Vue.use(resource);
+
 
 Vue.prototype.$loading = Loading.service;
 Vue.prototype.$msgbox = MessageBox;

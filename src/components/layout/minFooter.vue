@@ -1,6 +1,6 @@
 <template>
   <div>
-    <div class="footer"></div>
+    <div class="min-footer"></div>
   </div>
 </template>
 
@@ -11,7 +11,11 @@ export default {
 </script>
 
 <style lang="stylus">
-.footer
-  height 128px
+.min-footer
+  position fixed
+  left 0px
+  bottom 0px
+  width 100%
+  height 48px
   background #545c64
 </style>

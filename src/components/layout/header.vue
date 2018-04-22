@@ -10,12 +10,12 @@
         </router-link>
       </div>
       <div class="login-content" v-show="showLogin">
-        <span class="login">
+        <div class="login-link">
           <router-link to="/login">登陆</router-link>
-        </span>
-        <span class="register">
+        </div>
+        <div class="register-link">
           <router-link to="/register">注册</router-link>
-        </span>
+        </div>
       </div>
     </div>
   </div>
@@ -66,21 +66,23 @@ export default {
       font-size 14px
       color rgba(255, 255, 255, 0.8)
   .login-content
+    display block
     float right
-    height 64px
-    .login, .register
+    height 48px
+    .login-link, .register-link
+      display inline-block
       font-size 14px
       font-weight 200
-      line-height 48px
+      line-height 24px
       padding 12px
       color rgba(255, 255, 255, 0.8)
-    .login, .register
+    .login-link, .register-link
       a
         text-decoration none
         color rgba(255, 255, 255, 0.8)
         &:hover
           color #ffd04b
-    .register
+    .register-link
       margin-right 24px
 </style>
 
