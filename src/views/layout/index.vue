@@ -2,10 +2,10 @@
   <div>
     <suo-header :showLogin="false"></suo-header>
     <el-container>
-      <el-aside style="width:200px">
-        <suo-aside></suo-aside>
-      </el-aside>
-      <el-main>Main</el-main>
+      <suo-aside></suo-aside>
+      <el-main>
+        <router-view></router-view>
+      </el-main>
     </el-container>
     <min-footer></min-footer>
   </div>
@@ -16,8 +16,13 @@ import suoHeader from '../../components/layout/header'
 import suoAside from '../../components/layout/aside'
 import minFooter from '../../components/layout/minFooter'
 export default {
+  mounted() {
+    this.$router.push('/center')
+  },
   data() {
     return {}
+  },
+  methods: {
   },
   components: {
     suoHeader,

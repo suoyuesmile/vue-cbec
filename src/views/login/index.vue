@@ -5,16 +5,16 @@
       <div class="wrapper">
         <div class="login-container">
           <div class="login-title">密码登录</div>
-            <el-form>
-              <el-form-item>
-                <el-input type="text" v-model="loginForm.username" placeholder="请输入用户名"></el-input>
-                <el-input type="password" v-model="loginForm.password" placeholder="请输入密码"></el-input>
-                <div class="forget">
-                  忘记登录密码？
-                  </div>
-                <el-button @click="login">登陆</el-button>
-              </el-form-item>
-            </el-form>
+          <el-form>
+            <el-form-item>
+              <el-input type="text" v-model="loginForm.username" placeholder="请输入用户名"></el-input>
+              <el-input type="password" v-model="loginForm.password" placeholder="请输入密码"></el-input>
+              <div class="forget">
+                忘记登录密码？
+              </div>
+              <el-button @click="login">登陆</el-button>
+            </el-form-item>
+          </el-form>
         </div>
       </div>
     </div>
@@ -36,11 +36,18 @@ export default {
   },
   methods: {
     login() {
-      this.$http.get('/api/login').then((response) => {
-        if (this.loginForm.username === 'suoyue') {
-          if (this.loginForm.password === '123456') {
-            this.$router.push('/index')
-          }
+      this.$http.get('/api/login').then(response => {
+        if (
+          this.loginForm.username === 'suoyue' &&
+          this.loginForm.password === '123456'
+        ) {
+          this.$message({
+            message: '登录成功',
+            type: 'success'
+          })
+          this.$router.push('/layout')
+        } else {
+          this.$message.error('用户名或密码不正确，请重新再输')
         }
       })
     }
@@ -56,8 +63,6 @@ export default {
   position absolute
   height 100%
   width 100%
-  // backdrop-filter blur(10px)
-  // background rgba(222,222,222,0.1)
   .wrapper
     position relative
     .login-container
@@ -67,7 +72,7 @@ export default {
       height 300px
       width 300px
       color #fff
-      background rgba(22,22,22,0.6)
+      background rgba(22, 22, 22, 0.6)
       .login-title
         padding 24px 48px
       .el-form
@@ -87,12 +92,11 @@ export default {
             .el-button
               margin-top 48px
               width 100%
-              border-color rgba(64,158,255,0.8)
+              border-color rgba(64, 158, 255, 0.8)
               color #fff
-              background rgba(64,158,255,0.8)
+              background rgba(64, 158, 255, 0.8)
               &:hover
-                background rgba(64,158,255,1)
-
+                background rgba(64, 158, 255, 1)
 img
   position absolute
   z-index -1
