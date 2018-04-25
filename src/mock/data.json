@@ -2,5 +2,39 @@
   "login": {
     "username": "suoyue",
     "password": "123456"
+  },
+  "center": {
+    "auth": {
+      "awatar": "../assets/images/awatar.png",
+      "name": "阿里巴巴",
+      "degree": 6,
+      "desc": "跨境电商企业",
+      "register_time": "2018-4-20"
+    },
+    "todo": [
+      {
+        "content": "有订单需要同步",
+        "status": "待完成"
+      },
+      {
+        "content": "缴纳费用",
+        "status": "待完成"
+      }
+    ],
+    "notify": [
+      {
+        "title": "最新公告",
+        "content": "商品出口通知"
+      },
+      {
+        "title": "缴费成功通知",
+        "content": "成功缴纳税费"
+      }
+    ],
+    "active": {
+      "data": []
+    },
+    "jianyi": {
+    }
   }
 }

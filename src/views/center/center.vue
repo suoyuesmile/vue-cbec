@@ -4,25 +4,52 @@
       <el-row :gutter="20">
         <el-col :span="12">
           <el-card shadow="never" class="auth-card">
-            <div slot="header" class="auth-header clearfix">
-              <span>企业信息</span>
+            <div slot="header" class="card-header">
+              <span>
+                <i class="iconfont icon-qikongzhongxin"></i>企业信息
+              </span>
             </div>
             <div class="auth-content">
-              <div ref="authchart" :style="{width: '250px', height: '250px'}"></div>
+              <div class="info">
+                <div class="awatar"></div>
+                <div class="info-content">
+                  <h2 class="name">{{data.auth.name}}</h2>
+                  <div class="degree">认证等级：{{data.auth.degree}}级</div>
+                  <p class="desc">{{data.auth.desc}}</p>
+                  <p class="register_time">注册时间：{{data.auth.register_time}}</p>
+                </div>
+              </div>
+              <div class="chart-content">
+                <div ref="authchart" class="authchart" :style="{width: '250px', height: '250px'}"></div>
+              </div>
             </div>
           </el-card>
         </el-col>
         <el-col :span="6">
           <el-card shadow="never" class="todo-card">
-            <div slot="header" class="auth-header clearfix">
-              <span>待办事项</span>
+            <div slot="header" class="card-header">
+              <span>
+                <i class="iconfont icon-selected"></i>待办事项
+              </span>
+            </div>
+            <div class="card-content">
+              <ul>
+                <li class="card-item" v-for="(item, index) in data.todo" :key="index">{{item.content}}</li>
+              </ul>
             </div>
           </el-card>
         </el-col>
         <el-col :span="6">
-          <el-card shadow="never" class="todo-card">
-            <div slot="header" class="auth-header clearfix">
-              <span>消息提示</span>
+          <el-card shadow="never" class="notify-card">
+            <div slot="header" class="card-header">
+              <span>
+                <i class="iconfont icon-remind"></i>消息提示
+              </span>
+            </div>
+            <div class="card-content">
+              <ul>
+                <li class="card-item" v-for="(item, index) in data.notify" :key="index">{{item.content}}</li>
+              </ul>
             </div>
           </el-card>
         </el-col>
@@ -30,8 +57,10 @@
       <el-row :gutter="20">
         <el-col :span="18">
           <el-card shadow="never" class="active-card">
-            <div slot="header" class="auth-header clearfix">
-              <span>企业订单日活量</span>
+            <div slot="header" class="card-header">
+              <span>
+                <i class="iconfont icon-baobiaofenxi"></i>企业订单日活量
+              </span>
             </div>
             <div class="active-content">
               <div ref="activechart" :style="{width: '900px', height: '250px'}"></div>
@@ -39,9 +68,24 @@
           </el-card>
         </el-col>
         <el-col :span="6">
-          <el-card shadow="never" class="active-card">
-            <div slot="header" class="auth-header clearfix">
-              <span>提出建议</span>
+          <el-card shadow="never" class="jianyi-card">
+            <div slot="header" class="card-header">
+              <span>
+                <i class="iconfont icon-edit"></i>提出建议
+              </span>
+            </div>
+            <div class="card-content">
+              <el-form>
+                <el-form-item>
+                  <el-input type="text" placeholder="标题"></el-input>
+                </el-form-item>
+                <el-form-item>
+                  <el-input type="textarea" rows="4" placeholder="内容"></el-input>
+                </el-form-item>
+                <el-form-item>
+                  <el-button>提交</el-button>
+                </el-form-item>
+              </el-form>
             </div>
           </el-card>
         </el-col>
@@ -53,13 +97,29 @@
 <script>
 export default {
   mounted() {
+    this._getCenterData()
     this._drawCreditGraph()
     this._drawActiveChard()
   },
   data() {
-    return {}
+    return {
+      data: {
+        auth: {
+          name: '',
+          degree: '',
+          desc: '',
+          register_time: ''
+        }
+      }
+    }
   },
   methods: {
+    _getCenterData() {
+      this.$http.get('/api/center').then(response => {
+        const data = response
+        this.data = data.body
+      })
+    },
     _drawCreditGraph() {
       let authChart = this.$echarts.init(this.$refs.authchart)
       let option = {
@@ -156,41 +216,69 @@ export default {
 </script>
 
 <style lang="stylus">
+.iconfont
+  padding-right 4px
+  color #888
 .center
   position relative
   width 100%
   height 100%
   background #E9EEF3
-  .auth-card
+  // 卡片头部
+  .auth-card, .todo-card, .notify-card, .active-card, .jianyi-card
     height 340px
-    // width 700px
     border-radius 0px
     .el-card__header
-      .auth-header
+      .card-header
         text-align left
         font-size 14px
         line-height 14px
         height 10px
-  .todo-card
-    height 340px
-    // width 300px
-    border-radius 0px
-    .el-card__header
-      .auth-header
-        text-align left
-        font-size 14px
-        line-height 14px
-        height 10px
-  .active-card
+  .active-card, .jianyi-card
     margin-top 20px
     height 300px
-    // width 300px
-    border-radius 0px
-    .el-card__header
-      .auth-header
-        text-align left
-        font-size 14px
-        line-height 14px
-        height 10px
+  // 卡片内容
+  .auth-card
+    .el-card__body
+      .auth-content
+        .info
+          float left
+          position relative
+          height 250px
+          color #333
+          .awatar
+            height 128px
+            width 128px
+            border-radius 6%
+            background #999
+          .info-content
+            flex 1
+            margin-top 6px
+            height 120px
+            .name
+              line-height 36px
+              font-size 18px
+            .degree
+              // display inline-block
+              line-height 20px
+              font-size 14px
+            .desc, .register_time
+              color #666
+              line-height 20px
+              font-size 12px
+        .chart-content
+          float right
+  .todo-card, .notify-card
+    .el-card__body
+      .card-content
+        .card-item
+          text-align left
+          line-height 36px
+          height 36px
+          font-size 14px
+          color #75838C
+          border-bottom 1px solid #eee
+          &:hover
+            color #3986C4
 </style>
 

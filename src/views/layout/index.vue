@@ -4,7 +4,9 @@
     <el-container>
       <suo-aside></suo-aside>
       <el-main>
-        <router-view></router-view>
+        <!-- <transition name="fade"> -->
+          <router-view></router-view>
+        <!-- </transition> -->
       </el-main>
     </el-container>
     <min-footer></min-footer>
@@ -45,4 +47,10 @@ export default {
     color #333
     text-align center
     line-height 700px
+    // .fade-enter-active
+    //   transition .5s all leaner
+    // .fade-enter
+    //   opacity 0
+    // .fade-enter-to
+    //   opacity 1
 </style>
