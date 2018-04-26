@@ -48,9 +48,16 @@
             </div>
             <div class="card-content">
               <ul>
-                <li class="card-item" v-for="(item, index) in data.notify" :key="index">{{item.content}}</li>
+                <li class="card-item" v-for="(item, index) in data.notify" :key="index" @click="showNotify(item.title, item.content)">{{item.title}}</li>
               </ul>
             </div>
+            <el-dialog :title="notify.title" :visible.sync="notifyDialogVisible" width="30%" center>
+              <span>{{notify.content}}</span>
+              <span slot="footer" class="dialog-footer">
+                <el-button @click="notifyDialogVisible = false">取 消</el-button>
+                <el-button type="primary" @click="notifyDialogVisible = false">确 定</el-button>
+              </span>
+            </el-dialog>
           </el-card>
         </el-col>
       </el-row>
@@ -110,7 +117,12 @@ export default {
           desc: '',
           register_time: ''
         }
-      }
+      },
+      notify: {
+        title: '',
+        content: ''
+      },
+      notifyDialogVisible: false
     }
   },
   methods: {
@@ -210,6 +222,11 @@ export default {
         }
       }
       activeChart.setOption(option)
+    },
+    showNotify(title, content) {
+      this.notifyDialogVisible = true
+      this.notify.title = title
+      this.notify.content = content
     }
   }
 }
@@ -222,7 +239,7 @@ export default {
 .center
   position relative
   width 100%
-  height 100%
+  // height 100%
   background #E9EEF3
   // 卡片头部
   .auth-card, .todo-card, .notify-card, .active-card, .jianyi-card
@@ -252,6 +269,7 @@ export default {
             border-radius 6%
             background #999
           .info-content
+            text-align center
             flex 1
             margin-top 6px
             height 120px

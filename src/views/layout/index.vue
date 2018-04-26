@@ -8,8 +8,8 @@
           <router-view></router-view>
         <!-- </transition> -->
       </el-main>
+      <min-footer></min-footer>
     </el-container>
-    <min-footer></min-footer>
   </div>
 </template>
 
@@ -36,17 +36,17 @@ export default {
 
 <style lang="stylus">
 .el-container
-  width 100%
+  // width 100%
   .el-aside
     // background-color #545c64
-    color #333
-    text-align center
-    line-height 700px
+    // color #333
+    // text-align center
+    // line-height 600px
   .el-main
     background-color #E9EEF3
     color #333
-    text-align center
-    line-height 700px
+    // text-align center
+    // line-height 700px
     // .fade-enter-active
     //   transition .5s all leaner
     // .fade-enter

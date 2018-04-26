@@ -11,8 +11,7 @@
       "desc": "跨境电商企业",
       "register_time": "2018-4-20"
     },
-    "todo": [
-      {
+    "todo": [{
         "content": "有订单需要同步",
         "status": "待完成"
       },
@@ -21,7 +20,10 @@
         "status": "待完成"
       }
     ],
-    "notify": [
+    "notify": [{
+        "title": "认证审核通过",
+        "content": "报关认证审核已通过"
+      },
       {
         "title": "最新公告",
         "content": "商品出口通知"
@@ -34,7 +36,17 @@
     "active": {
       "data": []
     },
-    "jianyi": {
+    "jianyi": {}
+  },
+  "service_auth": {
+    "qiye_auth": {
+      "account": "13164602219",
+      "name": "阿里巴巴",
+      "status": "已认证"
+    },
+    "baoguan_auth": {
+      "listence": "",
+      "status": "未认证"
     }
   }
 }

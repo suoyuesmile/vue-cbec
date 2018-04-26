@@ -20,10 +20,10 @@
           <i class="iconfont icon-search"></i>
           <span>信息查询</span>
         </template>
-        <el-menu-item index="2-1">企业查询</el-menu-item>
-        <el-menu-item index="2-2">订单查询</el-menu-item>
+        <el-menu-item index="2-1">订单查询</el-menu-item>
+        <el-menu-item index="2-2">缴税查询</el-menu-item>
         <el-menu-item index="2-3">海关查询</el-menu-item>
-        <el-menu-item index="2-4">操作手册</el-menu-item>
+        <el-menu-item index="2-4">注意事项</el-menu-item>
       </el-submenu>
       <el-submenu index="3">
         <template slot="title">
@@ -41,9 +41,9 @@
           <span>反馈建议</span>
         </template>
         <el-menu-item index="4-1">服务反馈</el-menu-item>
-        <el-menu-item index="4-2">执法举报</el-menu-item>
-        <el-menu-item index="4-3">系统改善</el-menu-item>
-        <el-menu-item index="4-4">人工帮助</el-menu-item>
+        <!-- <el-menu-item index="4-2">执法举报</el-menu-item> -->
+        <!-- <el-menu-item index="4-3">系统改善</el-menu-item> -->
+        <el-menu-item index="4-4">帮助精灵</el-menu-item>
       </el-submenu>
 
     </el-menu>
