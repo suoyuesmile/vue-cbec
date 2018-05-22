@@ -10,6 +10,10 @@ import auth from '@/views/service/auth.vue'
 import declare from '@/views/service/declare.vue'
 import logistic from '@/views/service/logistic.vue'
 import scottare from '@/views/service/scottare.vue'
+import order from '@/views/search/orderSearch.vue'
+import man from '@/views/search/manSearch.vue'
+import custom from '@/views/search/customSearch.vue'
+import enterprise from '@/views/search/enterpriseSearch.vue'
 
 Vue.use(Router)
 
@@ -59,17 +63,25 @@ export default new Router({
           component: scottare
         },
         {
-          path: '/info',
+          path: '/orderSearch',
           name: '信息查询',
+          component: order
         },
         {
-          path: '/statistic',
-          name: '海关统计',
+          path: '/enterpriseSearch',
+          name: '信息查询',
+          component: enterprise
         },
         {
-          path: '/callback',
-          name: '反馈建议',
+          path: '/manSearch',
+          name: '信息查询',
+          component: man
         },
+        {
+          path: '/customSearch',
+          name: '信息查询',
+          component: custom
+        }
       ]
     }
   ]

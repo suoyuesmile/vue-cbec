@@ -90,7 +90,7 @@
                   <el-input type="textarea" rows="4" placeholder="内容"></el-input>
                 </el-form-item>
                 <el-form-item>
-                  <el-button>提交</el-button>
+                  <el-button @click="submit">提交</el-button>
                 </el-form-item>
               </el-form>
             </div>
@@ -227,6 +227,12 @@ export default {
       this.notifyDialogVisible = true
       this.notify.title = title
       this.notify.content = content
+    },
+    submit() {
+      this.$message({
+          message: '恭喜你，提交成功',
+          type: 'success'
+        });
     }
   }
 }
@@ -267,7 +273,8 @@ export default {
             height 128px
             width 128px
             border-radius 6%
-            background #999
+            background url('../../assets/images/ali.jpg') no-repeat
+            background-size 128px 128px
           .info-content
             text-align center
             flex 1

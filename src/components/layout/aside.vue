@@ -20,10 +20,10 @@
           <i class="iconfont icon-search"></i>
           <span>信息查询</span>
         </template>
-        <el-menu-item index="2-1">订单查询</el-menu-item>
-        <el-menu-item index="2-2">缴税查询</el-menu-item>
-        <el-menu-item index="2-3">海关查询</el-menu-item>
-        <el-menu-item index="2-4">注意事项</el-menu-item>
+        <el-menu-item index="/orderSearch">订单查询</el-menu-item>
+        <el-menu-item index="/enterpriseSearch">缴税查询</el-menu-item>
+        <el-menu-item index="/customSearch">物流查询</el-menu-item>
+        <el-menu-item index="/manSearch">注意事项</el-menu-item>
       </el-submenu>
       <el-submenu index="3">
         <template slot="title">

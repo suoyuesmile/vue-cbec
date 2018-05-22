@@ -26,8 +26,20 @@
       </div>
       <div class="info">
         <el-carousel height="480px">
-          <el-carousel-item v-for="item in 4" :key="item">
-            <h3>{{ item }}</h3>
+          <el-carousel-item >
+            <a :href="1"><img src="../../assets/images/1.jpg" alt=""></a>
+          </el-carousel-item>
+          <el-carousel-item >
+            <a :href="1"><img src="../../assets/images/2.jpg" alt=""></a>
+          </el-carousel-item>
+          <el-carousel-item >
+            <a :href="1"><img src="../../assets/images/3.jpg" alt=""></a>
+          </el-carousel-item>
+          <el-carousel-item >
+            <a :href="1"><img src="../../assets/images/4.jpg" alt=""></a>
+          </el-carousel-item>
+          <el-carousel-item >
+            <a :href="1"><img src="../../assets/images/5.jpg" alt=""></a>
           </el-carousel-item>
         </el-carousel>
       </div>
@@ -47,8 +59,10 @@
         </div>
         <div class="detail"></div>
       </div>
-      <div class="search"></div>
-      <div class="statistic"></div>
+      <!-- <div class="search">
+
+      </div>
+      <div class="statistic"></div> -->
       <div class="map" id="map"></div>
     </div>
     <suo-footer></suo-footer>
@@ -300,11 +314,11 @@ export default {
       activeIndex2: '1',
       loginStatus: false,
       info: [
-        { img: '', link: '1' },
-        { img: '', link: '2' },
-        { img: '', link: '3' },
-        { img: '', link: '4' },
-        { img: '', link: '5' }
+        { img: '../../assets/images/1.jpg', link: '1' },
+        { img: '../../assets/images/2.jpg', link: '2' },
+        { img: '../../assets/images/3.jpg', link: '3' },
+        { img: '../../assets/images/4.jpg', link: '4' },
+        { img: '../../assets/images/5.jpg', link: '5' }
       ]
     }
   },
@@ -341,17 +355,13 @@ export default {
       height 480px
       .el-carousel
         .el-carousel__container
-          .el-carousel__item h3
-            text-align center
-            color #475669
-            font-size 18px
-            opacity 0.75
-            line-height 480px
-            margin 0
-          .el-carousel__item:nth-child(2n)
-            background-color #99a9bf
-          .el-carousel__item:nth-child(2n+1)
-            background-color #d3dce6
+          .el-carousel__item
+            // width 100%
+            // height 480px
+            a
+              img
+                width 100%
+                height 480px
     .server
       color #475669
       height 480px
@@ -380,5 +390,6 @@ export default {
       height 480px
     .map
       height 480px
-      background rgba(235, 235, 235, 0.6)
+      background url('../../assets/images/map.png')
+      background-size 100% 480px
 </style>
